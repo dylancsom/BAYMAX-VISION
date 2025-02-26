@@ -9,10 +9,10 @@
 # Overview
 
   This repository contains a complete solution for medical wound segmentation 
-  using deep learning. The model is trained to identify the precise boundaries 
-  of open wounds in medical imagery, which has applications in wound assessment, 
-  measurement, and treatment planning. Specifically, its intended use is for 
-  automated emmergency injury treatment via computer vision embedded robotics. 
+  using deep learning. The model is trained to identify the total area and precise 
+  boundaries of open wounds in medical imagery, which has applications in wound 
+  assessment, measurement, and treatment. The main focus of this project is to 
+  explore the utility of Position-Based Visual Servoing within medical robotics.
 
 ### Key Features
 
@@ -50,7 +50,8 @@ To overcome the limited training data, extensive offline augmentation was implem
   - Region of interest removal
   - Background variation
 
-These augmentation strategies expanded the effective training set while teaching the model to be invariant to irrelevant variations.
+These augmentation strategies expanded the effective training set while teaching the 
+model to be invariant to irrelevant variations.
 
 ## Loss Functions and Training
 
@@ -81,49 +82,6 @@ The model was trained with early stopping based on validation performance to pre
 - IoU (Intersection over Union)
 - Accuracy
 - Custom weighted metrics
-
-## Usage
-
-### Installation
-
-```bash
-git clone https://github.com/yourusername/wound-segmentation.git
-cd wound-segmentation
-pip install -r requirements.txt
-```
-
-### Training
-
-```bash
-python train.py --train_dir path/to/training --val_dir path/to/validation
-```
-
-### Inference
-
-```python
-from keras.models import load_model
-import numpy as np
-from PIL import Image
-from keras.utils import custom_object_scope
-
-# Load custom functions
-with custom_object_scope({
-    'weighted_dice_coef_loss': weighted_dice_coef_loss,
-    'dice_coef': dice_coef,
-    'iou': iou,
-    'combined_dice_iou_loss': combined_dice_iou_loss
-}):
-    model = load_model('path/to/model.keras')
-
-# Preprocess image
-img = Image.open('wound_image.jpg')
-img = img.resize((256, 256))
-img_array = np.array(img) / 255.0
-img_array = np.expand_dims(img_array, axis=0)
-
-# Predict
-mask = model.predict(img_array)
-```
 
 ## Future Improvements
 
