@@ -132,6 +132,14 @@ mask = model.predict(img_array)
 - Exploration of attention mechanisms to improve boundary precision
 - Real-time segmentation optimization
 
+## Some Testing Samples
+
+![june05v1test](https://github.com/user-attachments/assets/fe1bd2c5-72c1-42ed-b381-29c0741a1431)
+![testdice7398](https://github.com/user-attachments/assets/484480c7-5da7-4531-831c-e461460d4046)
+![june11v7](https://github.com/user-attachments/assets/dfd717c5-8f41-4f6f-8024-e9c3fc1640f3)
+![livefeedtest1](https://github.com/user-attachments/assets/a9570e1f-03d4-4747-b6bc-bbc5570c538e)
+![oldmodel](https://github.com/user-attachments/assets/24f60e4e-7112-4142-b3aa-0cac6ae520e0)
+
 ## License
 
 [MIT License]
